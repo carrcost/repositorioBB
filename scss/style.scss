@@ -1,0 +1,224 @@
+@import "colores";
+
+h1 {font-family: 'Paytone One', sans-serif;
+	font-weight: 400;
+	color: $text-color; }
+p {color: $text-color;
+	font-family: Open Sans;
+	font-size: 13px;
+	font-weight: 30;}
+
+h2{font-family: Open Sans,sans-serif; font-weight: 800;}
+
+li {font-family: Open Sans,sans-serif; font-weight: 30;}
+
+body { 
+	background-image: url(../img/fondoliso.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+    background-size: cover;
+    padding: 0px;
+    margin: 0px;}
+
+//ANIDAMIENTO
+
+.Header { 
+		color: $text-color;
+		font-family: Open Sans, sans-serif;
+		font-weight: 30;
+		font-size: 15px;
+		grid-area: Header;
+	div { 
+		padding: 0px 20px; 
+		}
+	}
+
+
+.Footer {
+		grid-area: Footer;
+    	background-color: $text-color;
+   	 	padding-left: 40px;
+   	 	margin-top: 30px;
+   	 h4 {
+   	 	color: white;
+		font-family: Open Sans,sans-serif;
+		font-size: 20px; }
+	div {
+		font-family: Open Sans,sans-serif;
+    	font-size: 10px; }
+	}
+
+.Texto { grid-area: Texto;
+		margin: 10px;
+		padding: 10px;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: flex-start;
+		align-content: center;
+		width: 450px;
+	h1 { @extend h1;}
+	p { @extend p; }
+ }
+
+
+.Imagen { grid-area: Imagen;
+	padding: 10px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-areas:
+    "Header Header"
+    "Texto Imagen"
+    "Footer Footer";
+}
+
+
+
+
+@media only screen and (max-width: 760px){
+
+	.grid-container { 
+
+	grid-template-columns: 1fr;
+
+	grid-template-areas: 
+	"Header"
+	"Texto"
+	"Imagen"
+	"Footer";
+
+	grid-template-rows: 1fr 3fr 3fr 1fr;
+
+	width: 100%;}
+ }
+
+ .grid-containerServ {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 3fr 2fr 1fr;
+  grid-template-areas:
+    "Header Header Header"
+    "serv1 serv2 serv3"
+    "LogosClientes LogosClientes LogosClientes"
+    "Footer Footer Footer";
+}
+
+//EXTEND
+
+.servicios {
+		text-align: center;
+		padding: 20px;
+		overflow: auto;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		align-content: center;
+	h1 {
+		font-family: 'Paytone One', sans-serif;
+		font-weight: 400;
+		color: $text-color; }
+	p {
+		color: $text-color;
+		font-family: Open Sans;
+		font-size: 13px;
+		font-weight: 30;}
+	}
+
+.serv1 { grid-area: serv1;
+	@extend.servicios;
+	background-color: $rosaBB; }
+
+
+.serv2 { grid-area: serv2;
+	background-color: pink;
+	@extend.servicios; }
+
+.serv3 { grid-area: serv3;
+	background-color: $rosaBB;
+	@extend.servicios; }
+
+.LogosClientes { grid-area: LogosClientes; }
+
+@media only screen and (max-width: 760px){
+
+	.grid-containerServ { 
+
+	grid-template-columns: 1fr;
+
+	grid-template-areas: 
+	"Header"
+	"serv1"
+	"serv2"
+	"serv3"
+	"LogosClientes"
+	"Footer";
+
+	grid-template-rows: 1fr 3fr 3fr 3fr 2fr 1fr;
+
+	width: 100%;}
+ }
+
+.grid-containerContact {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-areas:
+    "Header Header Header"
+    ". Form ."
+    "Footer Footer Footer";
+}
+
+.Form { grid-area: Form;
+	background-color: $rosaBB;
+	padding: 40px;
+	text-align: center;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-content: center; }
+
+@media only screen and (max-width: 760px){
+
+	.grid-containerContact { 
+
+	grid-template-columns: 1fr;
+
+	grid-template-areas: 
+	"Header"
+	"."
+	"Form"
+	"."
+	"Footer";
+
+	grid-template-rows: 1fr 0.1fr 3fr 0.1fr 1fr;
+
+	width: 100%;}
+ }
+
+/*ANIMACIONES*/
+
+
+#boton {
+	text-decoration: none;
+	font-family: Open Sans,sans-serif;
+	font-size: 12px;
+	font-weight: 600; 
+	color: $text-color;
+	padding: 10px 18px;
+	border-radius: 30px;
+	border: solid 2px $text-color;
+	background-color: none; transition: all; 
+	}
+
+#boton:hover { background-color: $amarilloBB; color: $text-color; }
+
+#zoom { width: 200px; height: 200px;
+		transition: 2s; }
+#zoom:hover { transform: scale(3); }
